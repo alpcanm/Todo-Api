@@ -1,6 +1,7 @@
 from datetime import datetime
 from __init__ import db
-from core.models.model_note_book import NoteBookModel
+from core.models.model_notebook import NoteBookModel
+
 
 class TableNoteBooks(db.Model):
     __tablename__ = "notebooks"
@@ -12,15 +13,17 @@ class TableNoteBooks(db.Model):
     last_update = db.Column(db.DateTime, onupdate=datetime.utcnow)
     is_visible = db.Column(db.Boolean)
     icon_data = db.Column(db.String(120))
+    sequence = db.Column(db.Integer)
 
     def __repr__(self):
         return '<Note %r>' % self.text
 
     @classmethod
     def defineTable(cls, dictNoteBook: NoteBookModel):
-        return cls(rel_user_id=dictNoteBook.relUserId,
+        return cls(rel_user_id=dictNoteBook.rel_user_id,
                    text=dictNoteBook.text,
-                   created_at=dictNoteBook.createdAt,
-                   last_update=dictNoteBook.lastUpdate,
-                   is_visible=dictNoteBook . isVisible,
-                   icon_data=dictNoteBook.iconData)
+                   created_at=dictNoteBook.created_at,
+                   last_update=dictNoteBook.last_update,
+                   is_visible=dictNoteBook . is_visible,
+                   icon_data=dictNoteBook.icon_data,
+                   sequence=dictNoteBook.sequence)

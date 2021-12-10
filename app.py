@@ -1,10 +1,8 @@
 from flask import request
 from __init__ import create_app
-from core.models.model_note_book import NoteBookModel
-from core.routes.route import RouteNoteBook
+from core.models.model_notebook import NoteBookModel
+from core.routes.route_notebooks import RouteNoteBook
 app = create_app()
-from datetime import datetime
-
 
 @app.route("/")
 def hello_world():
@@ -15,6 +13,11 @@ def note_books():
     route = RouteNoteBook(request)
     return route.switch()
 
+
+@app.route("/notes", methods=['GET', 'POST', 'PUT'])
+def note_books():
+    route = RouteNoteBook(request)
+    return route.switch()
 
 if __name__ == "__main__":
     app.run(debug=True)
