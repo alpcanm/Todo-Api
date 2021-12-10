@@ -7,14 +7,14 @@ class NoteBookModel:
     isVisible = None
     iconData = None
 
-    def __init__(self, noteBookId,
+    def __init__(self,
                  relUserId,
                  text,
                  createdAt,
                  lastUpdate,
                  isVisible,
                  iconData):
-        self.noteBookId = noteBookId
+       
         self.relUserId = relUserId
         self.text = text
         self.createdAt = createdAt
@@ -24,13 +24,13 @@ class NoteBookModel:
 
     @classmethod
     def fromJson(cls, dict: dict):
-        return cls(dict["noteBookId"],
-                   dict["relUserId"],
-                   dict["text"],
-                   dict["createdAt"],
-                   dict["lastUpdate"],
-                   dict["isVisible"],
-                   dict["iconData"])
+        return cls(
+            relUserId=dict["relUserId"],
+            text=dict["text"],
+            createdAt=dict["createdAt"],
+            lastUpdate=dict["lastUpdate"],
+            isVisible=dict["isVisible"],
+            iconData=dict["iconData"])
 
     def toDict(self):
         return {
@@ -42,5 +42,3 @@ class NoteBookModel:
             "iconData": self.iconData,
             "isVisible": self.isVisible
         }
-
-        
