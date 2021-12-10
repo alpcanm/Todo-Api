@@ -16,7 +16,7 @@ class TableNoteBooks(db.Model):
     sequence = db.Column(db.Integer)
 
     def __repr__(self):
-        return '<Note %r>' % self.text
+        return '<NoteBook %r>' % self.text
 
     @classmethod
     def defineTable(cls, dictNoteBook: NoteBookModel):

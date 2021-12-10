@@ -1,4 +1,4 @@
-class Note:
+class NoteModel:
     note_id = None
     rel_notebook_id = None
     text = None

@@ -1,6 +1,7 @@
 from datetime import datetime
 
 from __init__ import db
+from core.models.model_note import NoteModel
 from core.models.model_notebook import NoteBookModel
 
 
@@ -22,11 +23,13 @@ class TableNotes(db.Model):
         return '<Note %r>' % self.text
 
     @classmethod
-    def defineTable(cls, dictNoteBook: NoteBookModel):
-        return cls(rel_user_id=dictNoteBook.rel_user_id,
-                   text=dictNoteBook.text,
-                   created_at=dictNoteBook.created_at,
-                   last_update=dictNoteBook.last_update,
-                   is_visible=dictNoteBook . is_visible,
-                   icon_data=dictNoteBook.icon_data,
-                   sequence=dictNoteBook.sequence)
+    def defineTable(cls, dictNote: NoteModel):
+        return cls(created_at=dictNote.created_at,
+                   rel_notebook_id=dictNote.rel_notebook_id,
+                   text=dictNote.text,
+                   last_update=dictNote.last_update,
+                   is_visible=dictNote . is_visible,
+                   is_major=dictNote.is_major,
+                   is_complete=dictNote.is_complete,
+                   comment=dictNote.comment,
+                   sequence=dictNote.sequence)

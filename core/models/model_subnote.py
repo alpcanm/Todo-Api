@@ -1,4 +1,4 @@
-class Subnote:
+class SubnoteModel:
     sub_note_id = None
     rel_note_id = None
     text = None
