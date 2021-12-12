@@ -7,22 +7,14 @@ import json
 
 
 class RouteNoteBooks:
-    def __init__(self, request: Request):
-        self.request = request
 
-    def switch(self, parameter: str):
-        if self.request.method == "PUT":
-            return self.put_method()
-        elif self.request.method == "POST":
-            return self.post_method()
-        else:
-            return self.get_method(parameter)
 
-    def post_method(self):
-        client = NoteBookModel.fromJson(self.request.json)
+    def post_method(self, request: Request):
+        client = NoteBookModel.fromJson(request.json)
         table = TableNoteBooks.defineTable(client)
         db.session.add(table)
         db.session.commit()
+
         return " this is a response "
 
     def get_method(self, parameter: str):

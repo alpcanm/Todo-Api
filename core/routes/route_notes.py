@@ -6,19 +6,10 @@ from core.tables.table_notes import TableNotes
 
 
 class RouteNotes:
-    def __init__(self, request: Request):
-        self.request = request
 
-    def switch(self,paramter:str):
-        if self.request.method == "PUT":
-            return self.put_method()
-        elif self.request.method == "POST":
-            return self.post_method()
-        else:
-            return self.get_method(paramter)
 
-    def post_method(self):
-        client = NoteModel.fromJson(self.request.json)
+    def post_method(self, request: Request):
+        client = NoteModel.fromJson(request.json)
         table = TableNotes.defineTable(client)
         db.session.add(table)
         db.session.commit()
