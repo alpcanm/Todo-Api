@@ -21,10 +21,9 @@ class TableSubNotes(db.Model):
 
     @classmethod
     def defineTable(cls, dictSubNote: SubnoteModel):
-        return cls(sub_note_id=dictSubNote.sub_note_id,
-                   rel_note_id=dictSubNote.rel_note_id,
+        return cls(rel_note_id=dictSubNote.rel_note_id,
                    text=dictSubNote.text,
                    is_complete=dictSubNote.is_complete,
                    is_visible=dictSubNote . is_visible,
-                   created_at=dictSubNote.icon_data,
+                #    created_at=dictSubNote.created_at,
                    sequence=dictSubNote.sequence)

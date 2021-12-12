@@ -1,9 +1,6 @@
 from datetime import datetime
-
 from __init__ import db
 from core.models.model_note import NoteModel
-from core.models.model_notebook import NoteBookModel
-
 
 class TableNotes(db.Model):
     __tablename__ = "notes"
