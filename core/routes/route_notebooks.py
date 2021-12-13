@@ -8,7 +8,6 @@ import json
 
 class RouteNoteBooks:
 
-
     def post_method(self, request: Request):
         client = NoteBookModel.fromJson(request.json)
         table = TableNoteBooks.defineTable(client)
@@ -27,3 +26,15 @@ class RouteNoteBooks:
 
     def put_method(self):
         return "PUT Method"
+
+    def patch_method(self, parameter: int, request: Request):
+        vari = request.get_json()
+        column_name = None
+        new_value = None
+        for key, value in vari.items():
+            column_name = key
+            new_value = value
+        db.session.query(TableNoteBooks).filter_by(notebook_id=parameter).update(
+            {column_name: new_value})
+        db.session.commit()
+        return "this is an update method"

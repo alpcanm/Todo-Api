@@ -25,5 +25,5 @@ class TableSubNotes(db.Model):
                    text=dictSubNote.text,
                    is_complete=dictSubNote.is_complete,
                    is_visible=dictSubNote . is_visible,
-                #    created_at=dictSubNote.created_at,
+                   created_at=dictSubNote.created_at,
                    sequence=dictSubNote.sequence)

@@ -1,8 +1,11 @@
+
 from flask.json import jsonify
 from flask.wrappers import Request
 from __init__ import db
 from core.models.model_subnote import SubnoteModel
 from core.tables.table_sub_notes import TableSubNotes
+
+import json
 
 
 class RouteSubNotes:
@@ -22,5 +25,14 @@ class RouteSubNotes:
             resultList.append(result.toDict())
         return jsonify(resultList)
 
-    def put_method(self):
-        return "PUT Method"
+    def patch_method(self, parameter: int, request: Request):
+        vari = request.get_json()
+        column_name = None
+        new_value = None
+        for key, value in vari.items():
+            column_name = key
+            new_value = value
+        db.session.query(TableSubNotes).filter_by(sub_note_id=parameter).update(
+            {column_name: new_value})
+        db.session.commit()
+        return "this is an update method"

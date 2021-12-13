@@ -7,7 +7,6 @@ from core.tables.table_notes import TableNotes
 
 class RouteNotes:
 
-
     def post_method(self, request: Request):
         client = NoteModel.fromJson(request.json)
         table = TableNotes.defineTable(client)
@@ -15,7 +14,7 @@ class RouteNotes:
         db.session.commit()
         return " this is a response "
 
-    def get_method(self,parameter:str):
+    def get_method(self, parameter: str):
         dbData = TableNotes.query.filter_by(rel_notebook_id=parameter).all()
         resultList = []
         for x in dbData:
@@ -25,3 +24,15 @@ class RouteNotes:
 
     def put_method(self):
         return "PUT Method"
+
+    def patch_method(self, parameter: int, request: Request):
+        vari = request.get_json()
+        column_name = None
+        new_value = None
+        for key, value in vari.items():
+            column_name = key
+            new_value = value
+        db.session.query(TableNotes).filter_by(note_id=parameter).update(
+            {column_name: new_value})
+        db.session.commit()
+        return "this is an update method"
