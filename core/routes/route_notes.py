@@ -15,7 +15,7 @@ class RouteNotes:
         return " this is a response "
 
     def get_method(self, parameter: str):
-        dbData = TableNotes.query.filter_by(rel_notebook_id=parameter).all()
+        dbData = TableNotes.query.filter_by(rel_notebook_id=parameter,is_visible=True).all()
         resultList = []
         for x in dbData:
             result = NoteModel.fromJson(x.__dict__)

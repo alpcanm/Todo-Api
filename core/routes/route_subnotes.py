@@ -18,7 +18,8 @@ class RouteSubNotes:
         return " this is a response "
 
     def get_method(self, parameter: str):
-        dbData = TableSubNotes.query.filter_by(rel_note_id=parameter).all()
+        dbData = TableSubNotes.query.filter_by(
+            rel_note_id=parameter, is_visible=True).all()
         resultList = []
         for x in dbData:
             result = SubnoteModel.fromJson(x.__dict__)
