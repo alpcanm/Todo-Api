@@ -3,7 +3,6 @@ from flask.wrappers import Request
 from core.models.model_notebook import NoteBookModel
 from core.tables.table_notebooks import TableNoteBooks
 from __init__ import db
-import json
 
 
 class RouteNoteBooks:

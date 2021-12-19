@@ -1,12 +1,9 @@
 
+from __init__ import db
 from flask.json import jsonify
 from flask.wrappers import Request
-from __init__ import db
 from core.models.model_subnote import SubnoteModel
 from core.tables.table_sub_notes import TableSubNotes
-
-import json
-
 
 class RouteSubNotes:
 

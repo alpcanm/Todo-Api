@@ -1,8 +1,7 @@
-from datetime import datetime
-
 from __init__ import db
-from core.models.model_notebook import NoteBookModel
+from datetime import datetime
 from core.models.model_subnote import SubnoteModel
+
 
 
 class TableSubNotes(db.Model):
@@ -11,7 +10,7 @@ class TableSubNotes(db.Model):
     rel_note_id = db.Column(db.String(64))
     text = db.Column(db.String(120))
     is_complete = db.Column(db.Boolean)
-    is_visible = is_visible = db.Column(db.Boolean)
+    is_visible = db.Column(db.Boolean)
     created_at = db.Column(db.DateTime, nullable=False,
                            default=datetime.utcnow)
     sequence = db.Column(db.Integer)

@@ -1,5 +1,5 @@
-from datetime import datetime
 from __init__ import db
+from datetime import datetime
 from core.models.model_notebook import NoteBookModel
 
 
