@@ -3,7 +3,6 @@ from flask_jwt_extended import create_access_token
 
 from core.routes.route_user import RouteUsers
 
-
 login_blueprint = Blueprint('/login', __name__)
 
 

@@ -1,4 +1,3 @@
-
 from __init__ import db
 from flask.json import jsonify
 from flask.wrappers import Request
@@ -19,13 +18,13 @@ class RouteUsers:
 
     def get_user(self, id: str):
         dbData = TableUser.query.filter_by(
-            user_id=id,).first()
+            user_id=id).first()
         result = UserModel.fromJson(dbData.__dict__).toDict()
         return jsonify(result)
 
     def check_user(self, mail: str, password: str):
         dbData = TableUser.query.filter_by(
-            mail=mail, password=password,).first()
+            mail=mail, password=password, ).first()
         self.identity = str(dbData.__dict__['user_id'])
         self.db_data = dbData
 
