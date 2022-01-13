@@ -1,3 +1,6 @@
+from datetime import datetime
+
+
 class NoteBookModel:
     notebook_id = None
     rel_user_id = None
@@ -11,8 +14,8 @@ class NoteBookModel:
     def __init__(self, notebook_id,
                  rel_user_id,
                  text,
-                 created_at,
-                 last_update,
+            created_at,
+            last_update,
                  is_visible,
                  icon_data,
                  sequence):
@@ -30,8 +33,8 @@ class NoteBookModel:
         return cls(notebook_id=dict["notebook_id"],
                    rel_user_id=dict["rel_user_id"],
                    text=dict["text"],
-                   created_at=str(dict["created_at"]),
-                   last_update=str(dict["last_update"]),
+                   created_at=datetime.now(),
+                   last_update=datetime.now(),
                    is_visible=dict["is_visible"],
                    icon_data=dict["icon_data"], 
                    sequence=dict["sequence"])

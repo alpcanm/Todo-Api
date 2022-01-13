@@ -1,3 +1,6 @@
+from datetime import datetime
+
+
 class SubnoteModel:
     sub_note_id = None
     rel_note_id = None
@@ -7,7 +10,7 @@ class SubnoteModel:
     created_at = None
     sequence = None
 
-    def __init__(self, sub_note_id, rel_note_id, text, is_complete, is_visible, created_at, sequence):
+    def __init__(self, sub_note_id, rel_note_id, text, is_complete, is_visible,created_at, sequence):
         self.sub_note_id = sub_note_id
         self.rel_note_id = rel_note_id
         self.text = text
@@ -23,7 +26,7 @@ class SubnoteModel:
                    text=dict["text"],
                    is_complete=dict["is_complete"],
                    is_visible=dict["is_visible"],
-                   created_at=str(dict["created_at"]),
+                   created_at=datetime.now(),
                    sequence=dict["sequence"])
 
     def toDict(self):

@@ -20,6 +20,6 @@ app.register_blueprint(subnotes_blueprint)
 app.register_blueprint(users_blueprint)
 app.register_blueprint(protected_bluerpint)
 app.register_blueprint(login_blueprint)
-db.create_all()
+# db.create_all()
 if __name__ == "__main__":
     app.run(debug=True)

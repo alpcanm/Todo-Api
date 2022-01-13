@@ -1,3 +1,6 @@
+from datetime import datetime
+
+
 class NoteModel:
     note_id = None
     rel_notebook_id = None
@@ -36,8 +39,8 @@ class NoteModel:
         return cls(note_id=dict["note_id"],
                    rel_notebook_id=dict["rel_notebook_id"],
                    text=dict["text"],
-                   created_at=str(dict["created_at"]),
-                   last_update=str(dict["last_update"]),
+                   created_at=datetime.now(),
+                   last_update=datetime.now(),
                    is_visible=dict["is_visible"],
                    is_major=dict["is_major"],
                    is_complete=dict["is_complete"],

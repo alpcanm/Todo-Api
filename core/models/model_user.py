@@ -1,3 +1,6 @@
+from datetime import datetime
+
+
 class UserModel:
     user_id = None
     name = None
@@ -13,8 +16,8 @@ class UserModel:
                  name,
                  surname,
                  mail,
-                 created_at,
-                 password,
+                password,
+                created_at,
                  phone_number,
                  mail_verified,
                  photo_url,):
@@ -35,7 +38,7 @@ class UserModel:
                    surname=dict["surname"],
                    password=dict["password"],
                    mail=dict["mail"],
-                   created_at=str(dict["created_at"]),
+                    created_at=datetime.now(),
                    phone_number=dict["phone_number"],
                    photo_url=dict["photo_url"],
                    mail_verified=dict["mail_verified"],

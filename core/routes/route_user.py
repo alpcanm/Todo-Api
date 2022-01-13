@@ -25,6 +25,7 @@ class RouteUsers:
     def check_user(self, mail: str, password: str):
         dbData = TableUser.query.filter_by(
             mail=mail, password=password, ).first()
+        
         self.identity = str(dbData.__dict__['user_id'])
         self.db_data = dbData
 
