@@ -3,7 +3,6 @@ from datetime import datetime
 from core.models.model_subnote import SubnoteModel
 
 
-
 class TableSubNotes(db.Model):
     __tablename__ = "subnotes"
     sub_note_id = db.Column(db.Integer, primary_key=True)
@@ -13,7 +12,7 @@ class TableSubNotes(db.Model):
     is_visible = db.Column(db.Boolean)
     created_at = db.Column(db.DateTime, nullable=False,
                            default=datetime.utcnow)
-    sequence = db.Column(db.Integer)
+    sequence = db.Column(db.Integer,  autoincrement=True)
 
     def __repr__(self):
         return '<SubNote %r>' % self.text
@@ -23,6 +22,6 @@ class TableSubNotes(db.Model):
         return cls(rel_note_id=dictSubNote.rel_note_id,
                    text=dictSubNote.text,
                    is_complete=dictSubNote.is_complete,
-                   is_visible=dictSubNote . is_visible,
+                   is_visible=dictSubNote.is_visible,
                    created_at=dictSubNote.created_at,
                    sequence=dictSubNote.sequence)

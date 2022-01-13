@@ -1,9 +1,9 @@
-
 from __init__ import db
 from flask.json import jsonify
 from flask.wrappers import Request
 from core.models.model_subnote import SubnoteModel
 from core.tables.table_sub_notes import TableSubNotes
+
 
 class RouteSubNotes:
 
@@ -16,7 +16,7 @@ class RouteSubNotes:
 
     def get_method(self, parameter: str):
         dbData = TableSubNotes.query.filter_by(
-            rel_note_id=parameter, is_visible=True).all()
+            rel_note_id=parameter, is_visible=True).order_by(TableSubNotes.sub_note_id.asc()).all()
         resultList = []
         for x in dbData:
             result = SubnoteModel.fromJson(x.__dict__)

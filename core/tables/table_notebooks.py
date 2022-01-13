@@ -24,6 +24,6 @@ class TableNoteBooks(db.Model):
                    text=dictNoteBook.text,
                    created_at=dictNoteBook.created_at,
                    last_update=dictNoteBook.last_update,
-                   is_visible=dictNoteBook . is_visible,
+                   is_visible=dictNoteBook.is_visible,
                    icon_data=dictNoteBook.icon_data,
                    sequence=dictNoteBook.sequence)

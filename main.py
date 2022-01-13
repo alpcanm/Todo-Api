@@ -1,4 +1,4 @@
-from __init__ import create_app
+from __init__ import create_app,db
 from core.blue_prints.notebooks import notebooks_blueprint
 from core.blue_prints.notes import notes_blueprint
 from core.blue_prints.subnotes import subnotes_blueprint
@@ -20,6 +20,6 @@ app.register_blueprint(subnotes_blueprint)
 app.register_blueprint(users_blueprint)
 app.register_blueprint(protected_bluerpint)
 app.register_blueprint(login_blueprint)
-
+db.create_all()
 if __name__ == "__main__":
     app.run(debug=True)

@@ -17,15 +17,12 @@ class RouteNoteBooks:
 
     def get_method(self, parameter: str):
         dbData = TableNoteBooks.query.filter_by(
-            rel_user_id=parameter, is_visible=True).all()
+            rel_user_id=parameter, is_visible=True).order_by(TableNoteBooks.sequence.asc()).all()
         resultList = []
         for x in dbData:
             result = NoteBookModel.fromJson(x.__dict__)
             resultList.append(result.toDict())
         return jsonify(resultList)
-
-    def put_method(self):
-        return "PUT Method"
 
     def patch_method(self, parameter: int, request: Request):
         vari = request.get_json()

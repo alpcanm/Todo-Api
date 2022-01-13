@@ -1,8 +1,7 @@
+from flask.blueprints import Blueprint
 from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import jwt_required
-
 from core.routes.route_user import RouteUsers
-
 
 protected_bluerpint = Blueprint('/protected', __name__)
 

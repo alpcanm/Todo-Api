@@ -10,7 +10,7 @@ login_blueprint = Blueprint('/login', __name__)
 def register():
     mail = request.json.get("mail", None)
     password = request.json.get("password", None)
-    print("aaa")
+
     route = RouteUsers()
     if not route.check_user(mail, password):
         return jsonify({"message": "There is no user!"}), 401
